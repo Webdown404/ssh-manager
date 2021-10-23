@@ -1,6 +1,13 @@
 #!/bin/bash
 sub_command="$@"
-ssh_manager_dir="$(dirname $(dirname $(dirname $(which ssh-manager))/$(readlink $(which ssh-manager))))"
+ssh_manager="$(which ssh-manager)"
+if [[ -L $ssh_manager ]]
+then
+    ssh_manager_dir="$(dirname $(dirname $(dirname $ssh_manager)/$(readlink $ssh_manager)))"
+else
+    # Windows may be used
+    ssh_manager_dir="$(dirname $ssh_manager)/node_modules/ssh-manager-cli"
+fi
 
 function start_ssh_connection() {
     echo "connecting to ssh server..."
