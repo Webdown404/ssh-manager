@@ -2,7 +2,7 @@
   "name": "ssh-manager-cli",
   "version": "1.4.8",
   "description": "A ssh manager",
-  "main": "./bin/ssh-manager.sh",
+  "main": "./bin/ssh-manager-handler.js",
   "preferGlobal": true,
   "dependencies": {
     "colors": "^1.4.0",
@@ -48,7 +48,7 @@
     "lib": "lib"
   },
   "bin": {
-    "ssh-manager": "./bin/ssh-manager.sh"
+    "ssh-manager": "./bin/ssh-manager-handler.js"
   },
   "keywords": [
     "ssh"
